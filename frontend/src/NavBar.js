@@ -4,6 +4,8 @@ import { Drawer, List, ListItem, ListItemIcon, ListItemText } from '@mui/materia
 import HomeIcon from '@mui/icons-material/Home';
 import SearchIcon from '@mui/icons-material/Search';
 import InfoIcon from '@mui/icons-material/Info';
+import VpnKeyIcon from '@mui/icons-material/VpnKey';
+import PersonAddIcon from '@mui/icons-material/PersonAdd';
 
 const NavBar = () => {
   return (
@@ -19,6 +21,16 @@ const NavBar = () => {
         <ListItem button component={Link} to="/">
           <ListItemIcon><HomeIcon /></ListItemIcon>
           <ListItemText primary="Home" />
+        </ListItem>
+
+        <ListItem button component={Link} to="/register">
+          <ListItemIcon><PersonAddIcon /></ListItemIcon>
+          <ListItemText primary="Register" />
+        </ListItem>
+
+        <ListItem button component={Link} to="/login">
+          <ListItemIcon><VpnKeyIcon /></ListItemIcon>
+          <ListItemText primary="Login" />
         </ListItem>
 
         <ListItem button component={Link} to="/search">
