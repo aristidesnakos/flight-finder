@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Login from './Login';
 import Register from './Register';
 import Activation from './Activation';
@@ -13,17 +13,15 @@ const DetailsPage = () => <div>Details Page</div>;
 
 const AppRouter = () => {
   return (
-    <Router>
-      <Switch>
-        <Route path="/" exact component={HomePage} />
-        <Route path="/login" component={Login} />
-        <Route path="/register" component={Register} />
-        <Route path="/activate/:uid/:token" component={Activation} />
-        <Route path="/password/reset" exact component={PasswordReset} />
-        <Route path="/password/reset/confirm/:uid/:token" component={PasswordResetConfirm} />
-        <Route path="/profile" component={UserProfile} />
-      </Switch>
-    </Router>
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<Register />} />
+      <Route path="/activate/:uid/:token" element={<Activation />} />
+      <Route path="/password/reset" element={<PasswordReset />} />
+      <Route path="/password/reset/confirm/:uid/:token" element={<PasswordResetConfirm />} />
+      <Route path="/profile" element={<UserProfile />} />
+    </Routes>
   );
 };
 
