@@ -20,4 +20,5 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path('api/auth/', include('djoser.urls')),  # djoser URLs
     path('api/auth/', include('djoser.urls.authtoken')), # Token-based auth URLs
+    path('api/auth/', include('djoser.urls.jwt')),
 ]
