@@ -5,6 +5,7 @@ import axios from "axios";
 const Register = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
   const register = () => {
     axios
@@ -16,7 +17,7 @@ const Register = () => {
         console.log(response.data);
       })
       .catch((error) => {
-        console.error(error);
+        setError("Registration failed");
       });
   };
 

@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { TextField, Button } from "@mui/material";
 import axios from "axios";
+import { AuthContext } from "./AuthContext";
 
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const { setUser } = useContext(AuthContext);
 
   const login = () => {
     axios
@@ -13,11 +16,11 @@ const Login = () => {
         password,
       })
       .then((response) => {
-        console.log(response.data);
+        setUser({ username, token: response.data.auth_token });
         localStorage.setItem('token', response.data.auth_token);
       })
       .catch((error) => {
-        console.error(error);
+        setError("Invalid username or password");
       });
   };
 
